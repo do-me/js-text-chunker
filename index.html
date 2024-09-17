@@ -18,7 +18,7 @@
 
     <!-- Text Area with Sample Text -->
     <div class="mb-3">
-      <label for="textInput" class="form-label">Text to Chunk:</label>
+      <label for="textInput" class="form-label">Text</label>
       <textarea id="textInput" class="form-control" rows="5">Official Journal of the European Union
 
 L 19/43
@@ -169,12 +169,12 @@ Arrangements for re-use applicable to all categories of high-value datasets
     <!-- Form for Parameters -->
     <div id="chunkForm" class="row g-3 mb-3">
       <div class="col-md-3">
-        <label for="chunkSize" class="form-label">Chunk Size (chars)</label>
+        <label for="chunkSize" class="form-label">Max Chunk Size (Characters)</label>
         <input type="number" id="chunkSize" class="form-control" value="500">
       </div>
       <div class="col-md-9 d-flex align-items-end btn-container">
         <button type="button" id="chunkButton" class="btn btn-primary w-100">Chunk</button>
-        <button id="exportButton" class="btn btn-secondary w-100" disabled>Export CSV</button>
+        <button id="exportButton" class="btn btn-primary w-100" disabled>Export as CSV</button>
       </div>
     </div>
 
@@ -183,7 +183,7 @@ Arrangements for re-use applicable to all categories of high-value datasets
       <thead>
         <tr>
           <th>Index</th>
-          <th>Chunk Length</th>
+          <th>Characters</th>
           <th>Chunk</th>
         </tr>
       </thead>
