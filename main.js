@@ -48,7 +48,7 @@ class TextSplitter {
   
   class RecursiveCharacterTextSplitter extends TextSplitter {
     constructor({
-      separators = ["\n\n", "\n", " ", ""],
+      separators = [],
       keepSeparator = true,
       isSeparatorRegex = false,
       ...rest
@@ -104,11 +104,14 @@ class TextSplitter {
   document.getElementById('chunkButton').addEventListener('click', () => {
     const text = document.getElementById('textInput').value;
     const chunkSize = document.getElementById("chunkSize").value;
+    // Parse the string into a JavaScript array
+    const separators = JSON.parse(document.getElementById('chunkSeparators').value);
+    const retainSeparator = document.getElementById("retainSeparator").checked;
   
     const splitter = new RecursiveCharacterTextSplitter({
       chunkSize,
-      separators: ["\n\n", "\n", ". ", " ", ""],
-      keepSeparator: false,
+      separators: separators,//["\n\n", "\n", ".", "?", "!", ";", ",", ":", " ", ""],
+      keepSeparator: retainSeparator,
     });
   
     const chunks = splitter.splitText(text);
