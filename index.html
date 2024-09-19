@@ -171,27 +171,40 @@ Arrangements for re-use applicable to all categories of high-value datasets
 
         <!-- Form for Parameters -->
         <div id="chunkForm" class="row g-3 mb-3">
+            <!-- Max Chunk Size -->
             <div class="col-md-3">
                 <label for="chunkSize" class="form-label">Max Chunk Size (Characters)</label>
                 <input type="number" id="chunkSize" class="form-control" value="500">
             </div>
-            <div class="mb-3">
+        
+            <!-- Retain Separator Checkbox on the same line -->
+            <div class="col-md-3 d-flex align-items-end">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="retainSeparator" />
+                    <label class="form-check-label" for="retainSeparator">
+                        Retain Separator in Chunks
+                    </label>
+                </div>
+            </div>
+        
+            <!-- Separator Hierarchy Section -->
+            <div class="col-md-12 mb-3">
                 <label for="chunkSeparators" class="form-label">Separator Hierarchy</label>
                 <input type="text" id="chunkSeparators" class="form-control"
-                    value='["\n\n\n", "\n\n", "\n", ".", "?", "!", ";", ",", ":", " ", ""]'>
+                value='["\n\n\n", "\n\n", "\n", ".", "?", "!", ";", ",", ":", " ", ""]'>
+                <ul>
+                    <li>Remove or add separators. Try this combo: ["\n\r", "\n", "\r", ".", "!", "?", ";", ":", "—", "–", "…", ",", " ", "\\\"","‘", "’", "“", "”", "(", ")", "[", "]", "{", "}", "/", "\\\\", ""]</li>
+                    <li>Want to ignore line breaks? Use this: [".", "?", "!", ";", ",", ":", " ", ""]</li>
+                </ul>      
             </div>
-            <!-- New Retain Separator Checkbox -->
-            <div class="mb-3">
-                <input class="form-check-input" type="checkbox" id="retainSeparator" />
-                <label class="form-check-label" for="retainSeparator">
-                    Retain Separator in Chunks
-                </label>
-            </div>
+        
+            <!-- Chunk and Export Buttons -->
             <div class="col-md-9 d-flex align-items-end btn-container">
                 <button type="button" id="chunkButton" class="btn btn-primary w-100">Chunk</button>
                 <button id="exportButton" class="btn btn-primary w-100" disabled>Export as CSV</button>
             </div>
         </div>
+        
 
 
         <!-- Table for Results -->
@@ -211,3 +224,5 @@ Arrangements for re-use applicable to all categories of high-value datasets
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="main.js"></script>
+</body>
+</html>
